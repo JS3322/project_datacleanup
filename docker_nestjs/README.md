@@ -48,3 +48,6 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+"eslint-plugin-prettier": "^3.3.1",

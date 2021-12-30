@@ -6,10 +6,11 @@ import {
     Delete,
     Patch,
     Body,
-    Query,
   } from '@nestjs/common';
   import { PostsService } from './posts.service';
 import { HomePost } from './entities/homePost.entity';
+import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
 
 @Controller('posts')
 export class PostsController {
@@ -21,22 +22,22 @@ export class PostsController {
   }
 
   @Get(':id')
-  getOne(@Param('id') postId: string): HomePost {
+  getOne(@Param('id') postId: number): HomePost {
     return this.postsService.getOne(postId);
   }
 
   @Post()
-  create(@Body() postData) {
+  create(@Body() postData: CreatePostDto) {
     return this.postsService.create(postData);
   }
 
   @Delete(':id')
-  remove(@Param('id') postId: string) {
+  remove(@Param('id') postId: number) {
     return this.postsService.deleteOne(postId);
   }
 
   @Patch(':id')
-  patch(@Param('id') postId: string, @Body() updateData) {
+  patch(@Param('id') postId: number, @Body() updateData: UpdatePostDto) {
     return this.postsService.update(postId, updateData);
   }
 }
